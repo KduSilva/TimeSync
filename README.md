@@ -64,7 +64,53 @@ Status do projeto
   Em desenvolvimento (controllers, services e regras de negócio)
   Próximos passos: autenticação com Spring Security e interface web
 
-Autor
-Projeto desenvolvido por Carlos Eduardo Ferreira da Silva, apelido Kdu Silva, como estudo e portfólio em Java Spring Boot.
+
+
+## Exemplo de dados no H2 Console
+
+Após rodar os testes e inserir registros, o banco H2 em memória fica assim:
+
+### Tabela CARGO
+| ID | NOME  | DESCRICAO            |
+|----|-------|----------------------|
+| 1  | ADM   | Administrador geral  |
+| 2  | LIDER | Líder de equipe      |
+| 3  | MEMBRO| Membro da equipe     |
+
+### Tabela USUARIO
+| ID | NOME    | EMAIL                | CARGO_ID |
+|----|---------|----------------------|----------|
+| 1  | Eduardo | eduardo@empresa.com  | 1        |
+| 2  | Maria   | maria@empresa.com    | 2        |
+| 3  | João    | joao@empresa.com     | 3        |
+
+### Tabela EQUIPE
+| ID | NOME             |
+|----|------------------|
+| 1  | Equipe de Vendas |
+
+### Tabela AVISO
+| ID | TITULO                 | DESCRICAO               | DATA_HORA           | CRIADOR_ID |
+|----|------------------------|-------------------------|---------------------|------------|
+| 1  | Reunião de Planejamento| Definir metas da semana | 2026-03-28 10:00:00 | 1          |
+
+### Tabela RESPOSTA
+| ID | STATUS   | JUSTIFICATIVA             | AVISO_ID | USUARIO_ID |
+|----|----------|---------------------------|----------|------------|
+| 1  | RECUSADO | Tenho outro compromisso   | 1        | 3          |
+
+---
+
+Esses dados foram inseridos manualmente no H2 Console para demonstração.  
+Você pode acessar o console em:  
+
+http://localhost:8080/h2-console
+
+Com as credenciais:
+- **JDBC URL**: `jdbc:h2:mem:timesyncdb`  
+- **User**: `sa`  
+- **Password**: *(em branco)*
+
+- Projeto desenvolvido por Carlos Eduardo Ferreira da Silva (apelido Kdu Silva) como estudo e portfólio em Java Spring Boot.
 
 ---
