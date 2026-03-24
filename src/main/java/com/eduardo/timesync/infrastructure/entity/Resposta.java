@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Resposta {
     
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -19,9 +19,46 @@ public class Resposta {
     @ManyToOne
     private Aviso aviso;
 
-    private String status; // "ACEITO", "RECUSADO"
+    private String status;        // "ACEITO", "RECUSADO"
     private String justificativa; // obrigatório se recusado
 
-    // getters e setters
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Aviso getAviso() {
+        return aviso;
+    }
+
+    public void setAviso(Aviso aviso) {
+        this.aviso = aviso;
+    }
+
+    public String getStatus() {   // <-- corrigido para String
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getJustificativa() {   // <-- corrigido para String
+        return justificativa;
+    }
+
+    public void setJustificativa(String justificativa) {
+        this.justificativa = justificativa;
+    }
 }

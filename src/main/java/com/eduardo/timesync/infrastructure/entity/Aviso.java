@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Aviso {
     
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,7 +27,51 @@ public class Aviso {
     @ManyToMany
     private List<Equipe> equipesDestinatarias;
 
-    // getters e setters
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public Usuario getCriador() {   // <-- corrigido
+        return criador;
+    }
+
+    public void setCriador(Usuario criador) {
+        this.criador = criador;
+    }
+
+    public List<Equipe> getEquipesDestinatarias() {
+        return equipesDestinatarias;
+    }
+
+    public void setEquipesDestinatarias(List<Equipe> equipesDestinatarias) {
+        this.equipesDestinatarias = equipesDestinatarias;
+    }
 }
