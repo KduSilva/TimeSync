@@ -111,6 +111,50 @@ Com as credenciais:
 - **User**: `sa`  
 - **Password**: *(em branco)*
 
-- Projeto desenvolvido por Carlos Eduardo Ferreira da Silva (apelido Kdu Silva) como estudo e portfólio em Java Spring Boot.
 
+
+## Roadmap de Implementação
+
+### Autenticação e Usuários
+- [ ] Adicionar campo **senha** ao `Usuario` com criptografia (BCrypt).  
+- [ ] Criar **AuthController** com endpoints:
+  - `/auth/register` → cadastro de conta.  
+  - `/auth/login` → login com JWT.  
+- [ ] Configurar **Spring Security + JWT** para proteger rotas.  
+- [ ] Regras de acesso por cargo (ADM, LIDER, MEMBRO).
+
+---
+
+### Avisos
+- [ ] CRUD completo de avisos:
+  - Criar aviso (somente ADM).  
+  - Listar avisos (todos ou por equipe).  
+  - Buscar aviso por ID.  
+  - Editar aviso (somente ADM).  
+  - Excluir aviso (somente ADM).  
+- [ ] Validação de regras (ADM cria, justificativa obrigatória ao recusar).
+
+---
+
+### Notificações
+- [ ] Criar entidade `Notificacao` com:
+  - Mensagem, data/hora, status (NOVA/VISUALIZADA).  
+  - Relacionamento com `Usuario` e `Aviso`.  
+- [ ] Implementar `NotificacaoService`:
+  - Gerar notificação ao criar aviso.  
+  - Gerar notificação ao responder aviso.  
+- [ ] Endpoints `/notificacoes`:
+  - Listar notificações do usuário.  
+  - Marcar como visualizada.
+
+---
+
+###  Funcionalidades Extras
+- [ ] **Histórico de atividades** (quem criou, respondeu, visualizou).  
+- [ ] **Dashboard** com estatísticas (avisos ativos, respostas aceitas/recusadas).  
+- [ ] **Agendamento de avisos** (avisos programados para aparecer em determinada data/hora).  
+- [ ] **Integração futura** com e-mail ou push notifications.
+
+
+- Projeto desenvolvido por Carlos Eduardo Ferreira da Silva (apelido Kdu Silva) como estudo e portfólio em Java Spring Boot.
 ---
