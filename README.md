@@ -122,7 +122,7 @@ Com as credenciais:
   - `/auth/login` → login com JWT.  
 - [X] Configurar **Spring Security + JWT** para proteger rotas.
 - [X] Incluir role no JWT e utilitários para extrair email e cargo.  
-- [ ] Regras de acesso por cargo (ADM, LIDER, MEMBRO).
+- [X] Regras de acesso por cargo (ADM, LIDER, MEMBRO).
 
 ---
 
