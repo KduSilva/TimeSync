@@ -1,6 +1,7 @@
 package com.eduardo.timesync.infrastructure.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,5 +11,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     
     // Exemplo de consulta personalizada para encontrar usuários por cargo
     List<Usuario> findByCargoNome(String nomeCargo);
+    Optional<Usuario> findByEmail(String email);
     
 }

@@ -14,6 +14,7 @@ public class Usuario {
 
     private String nome;
     private String email;
+    private String senha;
 
     @ManyToOne
     private Cargo cargo; // relacionamento com a tabela de cargos
@@ -50,5 +51,14 @@ public class Usuario {
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }
+    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
 }
 
