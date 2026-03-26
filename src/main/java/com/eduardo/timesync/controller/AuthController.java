@@ -42,9 +42,12 @@ public class AuthController {
         Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(loginRequest.getEmail());
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
+
             // compara senha digitada com hash no banco
             if (passwordEncoder.matches(loginRequest.getSenha(), usuario.getSenha())) {
-                String token = JwtUtil.generateToken(usuario.getEmail());
+
+                String token = JwtUtil.generateToken(usuario.getEmail(), usuario.getCargo().getNome());
+
                 return ResponseEntity.ok(token);
             }
         }
