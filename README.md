@@ -116,12 +116,12 @@ Com as credenciais:
 ## Roadmap de Implementação atualizado em 26/03/2026
 
 ### Autenticação e Usuários
-- [0] Adicionar campo **senha** ao `Usuario` com criptografia (BCrypt).  
-- [0] Criar **AuthController** com endpoints:
+- [X] Adicionar campo **senha** ao `Usuario` com criptografia (BCrypt).  
+- [X] Criar **AuthController** com endpoints:
   - `/auth/register` → cadastro de conta.  
   - `/auth/login` → login com JWT.  
-- [0] Configurar **Spring Security + JWT** para proteger rotas.
-- - [0] Incluir role no JWT e utilitários para extrair email e cargo.  
+- [X] Configurar **Spring Security + JWT** para proteger rotas.
+- [X] Incluir role no JWT e utilitários para extrair email e cargo.  
 - [ ] Regras de acesso por cargo (ADM, LIDER, MEMBRO).
 
 ---
