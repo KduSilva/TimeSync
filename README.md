@@ -126,6 +126,101 @@ Com as credenciais:
 
 ---
 
+## Roteiro de Testes para JWT no Postman
+seguindo ROADMAP
+### 1. Criar uma Collection
+- Abra o **Postman**.  
+- Clique em **New → Collection**.  
+- Nomeie como: `TimeSync API Tests`.  
+- Dentro dessa collection, vamos criar as requisições.
+
+---
+
+### 2. Registro de Usuário
+- **Método:** `POST`  
+- **URL:** `http://localhost:8080/auth/register`  
+- **Body → Raw → JSON**  
+  ```json
+  {
+    "email": "teste@exemplo.com",
+    "senha": "123456",
+    "cargo": { "nome": "ADM" }
+  }
+  ```
+- **Teste esperado:**  
+  - Retorna `200 OK` com o objeto do usuário salvo.  
+  - Senha deve estar criptografada no banco (não aparece em texto puro).  
+
+---
+
+### 3. Login de Usuário
+- **Método:** `POST`  
+- **URL:** `http://localhost:8080/auth/login`  
+- **Body → Raw → JSON**  
+  ```json
+  {
+    "email": "teste@exemplo.com",
+    "senha": "123456"
+  }
+  ```
+- **Teste esperado:**  
+  - Retorna `200 OK` com um **token JWT** (string longa).  
+  - Esse token será usado nas próximas requisições.  
+
+ **Dica:** No Postman, copie o token retornado e salve em uma variável da Collection:  
+- Vá em **Authorization** da Collection.  
+- Tipo: **Bearer Token**.  
+- Cole o token no campo.  
+Assim todas as requisições vão usar automaticamente esse token.
+
+---
+
+### 4. Acesso a rota protegida (ADM)
+- **Método:** `GET`  
+- **URL:** `http://localhost:8080/admin/teste`  
+- **Headers:**  
+  ```
+  Authorization: Bearer <TOKEN>
+  ```
+- **Teste esperado:**  
+  - Se o usuário tiver cargo `ADM`, retorna `200 OK`.  
+  - Se não tiver, retorna `403 Forbidden`.  
+
+---
+
+### 5. Acesso a rota protegida (LIDER)
+- **Método:** `GET`  
+- **URL:** `http://localhost:8080/lider/teste`  
+- **Headers:**  
+  ```
+  Authorization: Bearer <TOKEN>
+  ```
+- **Teste esperado:**  
+  - Se o usuário for `ADM` ou `LIDER`, acesso liberado.  
+  - Caso contrário, `403 Forbidden`.  
+
+---
+
+### 6. Acesso a rota protegida (MEMBRO)
+- **Método:** `GET`  
+- **URL:** `http://localhost:8080/membro/teste`  
+- **Headers:**  
+  ```
+  Authorization: Bearer <TOKEN>
+  ```
+- **Teste esperado:**  
+  - Se o usuário for `ADM`, `LIDER` ou `MEMBRO`, acesso liberado.  
+  - Caso contrário, `403 Forbidden`.  
+
+---
+
+## Onde colocar os scripts JSON
+- No Postman, vá em cada requisição → **Body → Raw → JSON**.  
+- Cole os exemplos que te passei (registro e login).  
+- Para rotas protegidas, use **Headers → Authorization** com o token JWT.  
+
+---
+
 ### Avisos
 - [ ] CRUD completo de avisos:
   - Criar aviso (somente ADM).  
