@@ -6,8 +6,6 @@ import com.eduardo.timesync.infrastructure.entity.Aviso;
 import com.eduardo.timesync.infrastructure.entity.Resposta;
 import com.eduardo.timesync.service.AvisoService;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/avisos")
 public class AvisoController {
